@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/st-annotated-text/st_annotated_text-4.0.2.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
   sha256: b0134dcf734697cc3dbdb11862c4174071e7fb6f365af55a37c710d357fd88a5
 
 build:
