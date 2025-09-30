@@ -12,8 +12,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  # s390x is missing streamlit
-  skip: true  # [py<35 or s390x]
+  skip: true  # [py<35]
 
 requirements:
   host:
@@ -29,10 +28,12 @@ requirements:
 test:
   imports:
     - annotated_text
-  commands:
-    - pip check
+    - annotated_text.parameters
   requires:
     - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
 
 about:
   home: https://github.com/tvst/st-annotated-text
